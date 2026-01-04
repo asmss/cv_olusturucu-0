@@ -8,7 +8,7 @@ RUN npm install
 
 COPY . .
 
-RUN mkdir -p pdfs
+RUN mkdir -p pdfs && chmod -R 777 pdfs
 
 EXPOSE 3000
 
