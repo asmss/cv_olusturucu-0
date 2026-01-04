@@ -3,13 +3,13 @@ const express = require("express");
 const connectDB = require("./config/db");
 const app = express();
 const CVRoutes = require("./routes/CvRoutes")
-
+const path = require('path');
 connectDB();
 
 app.use(cors({
     origin:"*"
 }))
-
+app.use('/pdfs', express.static(path.join(__dirname, 'pdfs')));
 app.use(express.json());
 app.use("/api",CVRoutes)
 app.use("/",(req,res)=>{
